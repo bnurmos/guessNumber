@@ -64,13 +64,13 @@ function compareNumbers() {
     // console.log("Woo-hoo, you win!")
     gameState.score = gameState.score + 1;
     return ("Woo-hoo, you win! " +
-    gameState.name +
+    gameState.name + ", your score is: " + gameState.score +
     ". To play again curl http://localhost:5000/chooseNumber?num1={number}")
   } else {
     //console.log("This time you didn't get the number right.");
     return (
-      "This time you didn't get the number right " +
-      gameState.name +
+      "This time you didn't get the number right. " +
+      gameState.name + ", your score is: " + gameState.score +
       ". To play again curl http://localhost:5000/chooseNumber?num1={number}"
     );
   }
