@@ -1,4 +1,13 @@
-#Guess a number
+# Welcome to Guess the Number Game!
+
+Problem being addressed:
+# pass info to an API, execute business logic, return response.
+
+This game include:
+# Node JS, ExpressJS
+# API endpoints
+# README on how to start the server & run the game
+
 
 To start the game:
 
