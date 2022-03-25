@@ -1,6 +1,8 @@
 const gameState = {
   score: 0,
   name: "",
+  num1: 0,
+  num2: 0,
 };
 
 // const readlineSync = require("readline-sync");
@@ -42,6 +44,7 @@ const enterName = (name) => {
 
 };
 const chooseNumber1 = (num1) => {
+  gameState.num1 = num1;
   return `Your number is ${num1}, to continue please go to curl http://localhost:5000/chooseNumber2`
 };
 // const generateNumber1 = () => {
@@ -52,24 +55,23 @@ const chooseNumber1 = (num1) => {
 
 const generateNumber2 = () => {
   let num2 = Math.floor(Math.random() * 10);
-  console.log(num2);
+  gameState.num2 = num2;
   let returnMessage = `Generated number is ${num2}, to continue please go to curl http://localhost:5000/compareNumbers`;
-  //return num2;
   return returnMessage;
 }
-function compareNumbers(num1, num2) {
-  if (num1 !== num2) {
+function compareNumbers() {
+  if (gameState.num1 === gameState.num2) {
     // console.log("Woo-hoo, you win!")
     gameState.score = gameState.score + 1;
     return ("Woo-hoo, you win! " +
     gameState.name +
-    ". To play again curl http://localhost:5000/startGame")
+    ". To play again curl http://localhost:5000/chooseNumber?num1={number}")
   } else {
     //console.log("This time you didn't get the number right.");
     return (
       "This time you didn't get the number right " +
       gameState.name +
-      ". To play again curl http://localhost:5000/startGame"
+      ". To play again curl http://localhost:5000/chooseNumber?num1={number}"
     );
   }
 }
